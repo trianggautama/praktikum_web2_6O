@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Praktikum</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -18,24 +18,25 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html">Login Page</a>
+    <a href="#">Login Page</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Praktikum Web2 6O</p>
 
-      <form action="../../index3.html" method="post">
+      <form action="{{Route('login')}}" method="post">
+        @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -45,7 +46,7 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <input type="checkbox" id="remember" name="remember">
               <label for="remember">
                 Remember Me
               </label>

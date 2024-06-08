@@ -14,12 +14,12 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::latest()->get();
 
-        return view('mahasiswa.index',compact('mahasiswa'));
+        return view('admin.mahasiswa.index',compact('mahasiswa'));
     }
 
     public function create()
     {
-        return view('mahasiswa.create');
+        return view('admin.mahasiswa.create');
     }
 
     public function store(MahasiswaRequest $request)
@@ -49,7 +49,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
 
-        return view('mahasiswa.edit',compact('mahasiswa'));
+        return view('admin.mahasiswa.edit',compact('mahasiswa'));
     }
 
     public function update(Request $request, $id)

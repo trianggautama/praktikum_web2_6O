@@ -173,8 +173,9 @@
 
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          @if(Auth::user()->role == 'admin')
             <li class="nav-item">
-                <a href="/home" class="nav-link">
+                <a href="{{Route('admin.home')}}" class="nav-link">
                   <i class="fas fa-file nav-icon"></i>
                   <p>Beranda</p>
                 </a>
@@ -201,6 +202,46 @@
                 </a>
               </li>
             </ul>
+          </li>
+          @endif
+          @if(Auth::user()->role == 'mahasiswa')
+            <li class="nav-item">
+                <a href="{{Route('mahasiswa.home')}}" class="nav-link">
+                  <i class="fas fa-file nav-icon"></i>
+                  <p>Beranda</p>
+                </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-file"></i>
+                <p>
+                  Akademik
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>KRS</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Nilai</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          @endif
+          <li class="nav-item">
+            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                Logout   
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>  
           </li>
         </ul>
       </nav>

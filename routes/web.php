@@ -1,19 +1,24 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('loginPage');
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/admin-home', [AuthController::class, 'home_admin'])->name('admin.home');
+Route::get('/mahasiswa-home', [AuthController::class, 'home_mahasiswa'])->name('mahasiswa.home');
+
+
 
 Route::get('/profil', function () {
     return view('profil');
 });
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 //routing data mahasiswa

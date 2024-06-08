@@ -25,7 +25,7 @@
                         <img src="{{asset('img/student.png')}}" alt="" width="100%">
                     </div>
                     <div class="col-10">
-                        <h2>Hallo World</h2>
+                        <h2>Hallo Mahasiswa {{Auth::user()->nama}}</h2>
                         <p class="card-text">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, repellendus? Tempora, culpa dolorum eaque cum voluptates voluptate. Sunt optio perspiciatis natus fuga. Cumque et sunt a explicabo ipsum architecto placeat!
                         </p>
